@@ -3,6 +3,7 @@ export default {
   primary: '#fec68e',
   smallSize: 20,
   midSize: 25,
+  btnSize: 23,
   largeSize: 30,
   appName: 'ChatNPlay',
   white: '#fff',

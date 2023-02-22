@@ -3,19 +3,26 @@ import React from 'react';
 import VideoPlayer from 'react-native-video-player';
 import TopBar from './src/components/TopBar';
 import {FlatList} from 'react-native-gesture-handler';
-import {Button, Card, Text} from 'react-native-paper';
+import {Card, Text} from 'react-native-paper';
 import data from './src/constants/Data';
 import styles from './src/constants/AppStyle';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import ConstantVars from './src/constants/ConstantVars';
 
 const App = () => {
   const renderItem = ({item}) => {
     return (
       <View style={styles.cardView}>
         <Card>
-          <Card.Content>
+          <Card.Content style={styles.cardContent}>
             <Text variant="titleLarge" style={styles.titleTxt}>
               {item.title}
             </Text>
+            <Ionicons
+              name="ellipsis-horizontal-outline"
+              size={ConstantVars.btnSize}
+              color={ConstantVars.white}
+            />
           </Card.Content>
           <View style={styles.screenWidth}>
             <VideoPlayer
@@ -23,25 +30,52 @@ const App = () => {
               autoplay={false}
               videoWidth={1500}
               videoHeight={1500}
+              fullscreen={true}
+              style={styles.videoTag}
             />
           </View>
-          <Card.Actions style={styles.alignSelf}>
-            <TouchableOpacity>
-              <Button style={styles.buttonView}>
-                <Text style={styles.buttonTxt}>Like</Text>
-              </Button>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Button style={styles.buttonView}>
-                <Text style={styles.buttonTxt}>Comment</Text>
-              </Button>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Button style={styles.buttonView}>
-                <Text style={styles.buttonTxt}>Share</Text>
-              </Button>
-            </TouchableOpacity>
-          </Card.Actions>
+          <View style={styles.iconsView}>
+            <View style={styles.row}>
+              <TouchableOpacity>
+                <View style={styles.buttonView}>
+                  <Ionicons
+                    name="heart-outline"
+                    size={ConstantVars.btnSize}
+                    color={ConstantVars.white}
+                  />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <View style={styles.buttonView}>
+                  <Ionicons
+                    name="chatbubble-outline"
+                    size={ConstantVars.btnSize}
+                    color={ConstantVars.white}
+                  />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <View style={styles.buttonView}>
+                  <Ionicons
+                    name="send-outline"
+                    size={ConstantVars.btnSize}
+                    color={ConstantVars.white}
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <View style={styles.buttonView}>
+                  <Ionicons
+                    name="bookmark-outline"
+                    size={ConstantVars.btnSize}
+                    color={ConstantVars.white}
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
         </Card>
       </View>
     );
